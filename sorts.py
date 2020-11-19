@@ -6,19 +6,21 @@ def quicksort(array, l, r):
         pivot = array[r]["number"]
         i = l
         for j in range(l, r):
+            print(array[l:r])
             if i == j:
                 continue
             if array[j]["number"] < pivot:
                 array[i], array[j] = array[j], array[i]
                 i += 1
-            array[i + 1], array[r] = array[r], array[i + 1]
+        array[i + 1], array[r] = array[r], array[i + 1]
+        print(array[l:r])
         return i + 1
     
     #exit condition
     if l < r:
         pivot = partition(array, l, r)
         quicksort(array, l, pivot - 1)
-        quicksort(array, pivot + 1, r)
+        quicksort(array, pivot, r)
     return
 
 def commonsort(file):
