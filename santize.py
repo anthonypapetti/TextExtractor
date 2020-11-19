@@ -6,7 +6,7 @@ def sanitize(line):
     return sanline
 
 def sanfile(file):
-    santext = file.read.strip("[]<>:;1234567890,.!\"!@#$%^&*()}{")
+    santext = file.read().strip("[]<>:;1234567890,.!\"!@#$%^&*()}{")
     santext = santext.strip()
     file.seek(0)
-    return sanfile
+    return santext

@@ -1,6 +1,7 @@
 import sys
 import os
 from counts import charcount, linecount, specialcount, wordcount
+from sorts import commonsort
 
 if len(sys.argv) != 2:
     raise Exception("Usage: python run.py filename.txt")
@@ -21,3 +22,5 @@ metadata_outfile.write(f"Characters (without spaces)- {charcount(infile, False)}
 metadata_outfile.write(f"Lines- {linecount(infile)}\n")
 metadata_outfile.write(f"Special Punctuation- {specialcount(infile)}\n")
 metadata_outfile.write(f"Words- {wordcount(infile)}\n")
+
+print(commonsort(infile))

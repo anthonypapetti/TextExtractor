@@ -131,3 +131,4 @@ dmypy.json
 #example text for testing
 examples/
 metadata.txt
+.vscode/
