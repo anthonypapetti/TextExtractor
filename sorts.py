@@ -1,27 +1,24 @@
 from santize import sanfile
 
-def quicksort(array, l, r):
-    #sorts the array and returns a pivot value
-    def partition(array, l, r):
-        pivot = array[r]["number"]
-        i = l
-        for j in range(l, r):
-            print(array[l:r])
-            if i == j:
-                continue
-            if array[j]["number"] < pivot:
-                array[i], array[j] = array[j], array[i]
-                i += 1
-        array[i + 1], array[r] = array[r], array[i + 1]
-        print(array[l:r])
-        return i + 1
-    
-    #exit condition
-    if l < r:
-        pivot = partition(array, l, r)
-        quicksort(array, l, pivot - 1)
-        quicksort(array, pivot, r)
-    return
+def quick_sort(sequence):
+    length = len(sequence)
+    if length <= 1:
+        return sequence
+    else:
+        pivot = sequence.pop()
+
+    items_greater = []
+    items_lower = []
+
+    for item in sequence:
+        if item["number"] > pivot["number"]:
+            items_greater.append(item)
+
+        else:
+            items_lower.append(item)
+
+    return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
+
 
 def commonsort(file):
     countdict = {}
@@ -40,5 +37,6 @@ def commonsort(file):
         countlist.append({"word": key, "number": value})
     
     #sort list
-    quicksort(countlist, 0, len(countlist) - 1)
+    print(countlist)
+    quick_sort(countlist)
     return countlist
