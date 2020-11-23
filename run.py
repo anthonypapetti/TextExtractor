@@ -2,6 +2,7 @@ import sys
 import os
 from counts import charcount, linecount, specialcount, wordcount
 from sorts import commonsort
+from santize import sanitize
 
 if len(sys.argv) != 2:
     raise Exception("Usage: python run.py filename.txt")

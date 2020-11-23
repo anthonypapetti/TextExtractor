@@ -1,28 +1,27 @@
-from santize import sanfile
+from santize import sanitize
 
-def quick_sort(sequence):
-    length = len(sequence)
-    if length <= 1:
+def quicksort(sequence):
+    if len(sequence) <= 1:
         return sequence
     else:
         pivot = sequence.pop()
 
-    items_greater = []
+    items_higher = []
     items_lower = []
 
     for item in sequence:
         if item["number"] > pivot["number"]:
-            items_greater.append(item)
+            items_higher.append(item)
 
         else:
             items_lower.append(item)
 
-    return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
+    return quicksort(items_lower) + [pivot] + quicksort(items_higher)
 
 
 def commonsort(file):
     countdict = {}
-    text = sanfile(file).split()
+    text = sanitize(file.read()).split()
 
     #count words in text
     for word in text:
@@ -37,6 +36,5 @@ def commonsort(file):
         countlist.append({"word": key, "number": value})
     
     #sort list
-    print(countlist)
-    quick_sort(countlist)
+    quicksort(countlist)
     return countlist
