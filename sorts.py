@@ -8,14 +8,16 @@ def quicksort(sequence):
 
     items_higher = []
     items_lower = []
-
+    print(sequence)
     for item in sequence:
         if item["number"] > pivot["number"]:
             items_higher.append(item)
 
         else:
             items_lower.append(item)
-
+    print(items_lower) 
+    print(pivot)
+    print(items_higher)
     return quicksort(items_lower) + [pivot] + quicksort(items_higher)
 
 
@@ -36,5 +38,5 @@ def commonsort(file):
         countlist.append({"word": key, "number": value})
     
     #sort list
-    quicksort(countlist)
+    countlist = quicksort(countlist)
     return countlist
