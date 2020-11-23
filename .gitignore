@@ -131,4 +131,5 @@ dmypy.json
 #example text for testing
 examples/
 metadata.txt
+commonsort.txt
 .vscode/

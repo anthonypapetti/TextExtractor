@@ -16,12 +16,17 @@ infile = open(sys.argv[1], "r")
 
 #create return files
 metadata_outfile = open("metadata.txt", "w")
+commonsort_outfile = open("commonsort.txt", "w")
 
-
+#write to metadata file
 metadata_outfile.write(f"Characters- {charcount(infile)}\n")
 metadata_outfile.write(f"Characters (without spaces)- {charcount(infile, False)}\n")
 metadata_outfile.write(f"Lines- {linecount(infile)}\n")
 metadata_outfile.write(f"Special Punctuation- {specialcount(infile)}\n")
 metadata_outfile.write(f"Words- {wordcount(infile)}\n")
 
-print(commonsort(infile))
+#write to commonsort file
+common_words = commonsort(infile)
+for word in common_words:
+    values = list(word.values())
+    commonsort_outfile.write(f"{values[0]}- {values[1]}\n")
