@@ -49,7 +49,7 @@ def alphabeticalsort(file):
                 buckets[word[0]] = [word]
         
         #sort buckets
-        for bucket in buckets.values:
+        for bucket in buckets.values():
             for item in bucket:
                 #compare to previous elements in list
                 for previous_item in bucket[0:bucket.index(item)]:
@@ -59,18 +59,18 @@ def alphabeticalsort(file):
                     previous_item_na = previous_item.replace('\'', '')
 
                     #loop through characters with smallest length iterations
-                    if len(item_na) <= len(previous_item_na)
+                    if len(item_na) <= len(previous_item_na):
                         loop_len = len(item_na)
                         item_bigger = False
                     else:
                         loop_len = len(previous_item_na)
                         item_bigger = True
-                        
+
                     for i in range(loop_len):
                         #compare characters
                         if ord(item_na[i]) < ord(previous_item_na[i]):
                             #swap
-                            bucket[index(item)], bucket[index(previous_item)] = bucket[index(previous_item)], bucket[index(item)]
+                            bucket[bucket.index(item)], bucket[bucket.index(previous_item)] = bucket[bucket.index(previous_item)], bucket[bucket.index(item)]
                             length_compare = False
                             break
                         if ord(item_na[i]) > ord(previous_item_na[i]):
@@ -84,7 +84,7 @@ def alphabeticalsort(file):
                     #based on length
                     if length_compare:
                         if not item_bigger:
-                            bucket[index(item)], bucket[index(previous_item)] = bucket[index(previous_item)], bucket[index(item)]
+                            bucket[bucket.index(item)], bucket[bucket.index(previous_item)] = bucket[bucket.index(previous_item)], bucket[bucket.index(item)]
     text = sanitize(file.read()).split()
     file.seek(0)
     #TODO: Get rid of duplicates
