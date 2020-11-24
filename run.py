@@ -1,7 +1,7 @@
 import sys
 import os
 from counts import charcount, linecount, specialcount, wordcount
-from sorts import commonsort
+from sorts import commonsort, alphabeticalsort
 from santize import sanitize
 
 if len(sys.argv) != 2:
@@ -30,3 +30,6 @@ common_words = commonsort(infile)
 for word in common_words:
     values = list(word.values())
     commonsort_outfile.write(f"{values[0]}- {values[1]}\n")
+
+#TODO: Write to alphabeticalsort outfile
+print(alphabeticalsort(infile))

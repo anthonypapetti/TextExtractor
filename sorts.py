@@ -20,6 +20,7 @@ def quicksort(sequence):
 def commonsort(file):
     countdict = {}
     text = sanitize(file.read()).split()
+    file.seek(0)
 
     #count words in text
     for word in text:
@@ -36,3 +37,56 @@ def commonsort(file):
     #sort list
     countlist = quicksort(countlist)
     return countlist
+
+def alphabeticalsort(file):
+    def sort(words):
+        buckets = {}
+        #sort items into buckets
+        for word in words:
+            if word[0] in buckets.keys():
+                buckets[word[0]].append(word)
+            else:
+                buckets[word[0]] = [word]
+        
+        #sort buckets
+        for bucket in buckets.values:
+            for item in bucket:
+                #compare to previous elements in list
+                for previous_item in bucket[0:bucket.index(item)]:
+                    #compare the two items
+                    #create copies with stripped apostrophes (na items)
+                    item_na = item.replace('\'', '')
+                    previous_item_na = previous_item.replace('\'', '')
+
+                    #loop through characters with smallest length iterations
+                    if len(item_na) <= len(previous_item_na)
+                        loop_len = len(item_na)
+                        item_bigger = False
+                    else:
+                        loop_len = len(previous_item_na)
+                        item_bigger = True
+                        
+                    for i in range(loop_len):
+                        #compare characters
+                        if ord(item_na[i]) < ord(previous_item_na[i]):
+                            #swap
+                            bucket[index(item)], bucket[index(previous_item)] = bucket[index(previous_item)], bucket[index(item)]
+                            length_compare = False
+                            break
+                        if ord(item_na[i]) > ord(previous_item_na[i]):
+                            #don't swap
+                            length_compare = False
+                            break
+                        if ord(item_na[i]) == ord(previous_item_na[i]):
+                            length_compare = True
+                            continue
+                    #check if items need to be swapped
+                    #based on length
+                    if length_compare:
+                        if not item_bigger:
+                            bucket[index(item)], bucket[index(previous_item)] = bucket[index(previous_item)], bucket[index(item)]
+    text = sanitize(file.read()).split()
+    file.seek(0)
+    #TODO: Get rid of duplicates
+    text = sort(text)
+    return text
