@@ -1,8 +1,7 @@
 import sys
 import os
 from counts import charcount, linecount, specialcount, wordcount
-from sorts import commonsort, alphabeticalsort
-from santize import sanitize
+from sorts import commonsort, alphasort
 
 if len(sys.argv) != 2:
     raise Exception("Usage: python run.py filename.txt")
@@ -33,6 +32,6 @@ for word in common_words:
     commonsort_outfile.write(f"{values[0]}- {values[1]}\n")
 
 #TODO: Write to alphabeticalsort outfile
-alphawords = alphabeticalsort(infile)
+alphawords = alphasort(infile)
 for word in alphawords:
     alphasort_outfile.write(f"{word}\n")

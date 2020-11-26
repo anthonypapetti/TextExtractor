@@ -1,4 +1,4 @@
-from santize import sanitize
+from sanitize import sanitize
 
 def quicksort(sequence):
     if len(sequence) <= 1:
@@ -38,7 +38,7 @@ def commonsort(file):
     countlist = quicksort(countlist)
     return countlist
 
-def alphabeticalsort(file):
+def alphasort(file):
     def sort(words):
         buckets = {}
         #sort items into buckets
