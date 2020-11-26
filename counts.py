@@ -1,4 +1,4 @@
-from santize import sanitize
+from sanitize import sanitize
 
 #spaces is bool
 def charcount(file ,spaces=True):
