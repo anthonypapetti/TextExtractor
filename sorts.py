@@ -85,8 +85,16 @@ def alphabeticalsort(file):
                     if length_compare:
                         if not item_bigger:
                             bucket[bucket.index(item)], bucket[bucket.index(previous_item)] = bucket[bucket.index(previous_item)], bucket[bucket.index(item)]
+        return buckets
+
     text = sanitize(file.read()).split()
     file.seek(0)
-    #TODO: Get rid of duplicates
+    text = list(set(text))
     text = sort(text)
-    return text
+    alphabet = list(map(chr, range(97, 123)))
+    textlist = []
+    for letter in alphabet:
+        for key in text.keys():
+            if key == letter:
+                textlist += text[letter]
+    return textlist

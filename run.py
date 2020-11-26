@@ -17,6 +17,7 @@ infile = open(sys.argv[1], "r")
 #create return files
 metadata_outfile = open("metadata.txt", "w")
 commonsort_outfile = open("commonsort.txt", "w")
+alphasort_outfile = open("alphasort.txt", "w")
 
 #write to metadata file
 metadata_outfile.write(f"Characters- {charcount(infile)}\n")
@@ -32,4 +33,6 @@ for word in common_words:
     commonsort_outfile.write(f"{values[0]}- {values[1]}\n")
 
 #TODO: Write to alphabeticalsort outfile
-print(alphabeticalsort(infile))
+alphawords = alphabeticalsort(infile)
+for word in alphawords:
+    alphasort_outfile.write(f"{word}\n")
