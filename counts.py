@@ -1,23 +1,16 @@
 from sanitize import sanitize
 
 #spaces is bool
-def charcount(file ,spaces=True):
-    text = file.read()
+def charcount(text,spaces=True):
     if spaces == False:
         text = text.replace(" ", "")
-    file.seek(0)
     return len(text)
 
-def linecount(file):
-    lines = len(file.readlines())
-    file.seek(0)
-    return lines
-
 #count question marks, exclamation points, and apostrophes
-def specialcount(file):
+def specialcount(text):
     specialdict = {"apostrophe": 0, "question": 0, "exclamation": 0, "semicolon": 0}
 
-    for char in file.read():
+    for char in text:
         if char == "'":
             specialdict["apostrophe"] += 1
         if char == "?":
@@ -27,13 +20,8 @@ def specialcount(file):
         if char == ";":
             specialdict["semicolon"] += 1
     
-    file.seek(0)
     return specialdict
 
-def wordcount(file):
-    text = file.readlines()
-    words = 0
-    for line in text:
-        words += len(sanitize(line).split())
-    file.seek(0)
+def wordcount(text):
+    words = len(sanitize(text).split())
     return words
