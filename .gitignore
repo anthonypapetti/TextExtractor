@@ -135,3 +135,5 @@ commonsort.txt
 .vscode/
 alphasort.txt
 .replit
+*.lock
+*.toml
