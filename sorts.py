@@ -17,10 +17,9 @@ def quicksort(sequence):
     return quicksort(items_higher) + [pivot] + quicksort(items_lower)
 
 
-def commonsort(file):
+def commonsort(intext):
     countdict = {}
-    text = sanitize(file.read()).split()
-    file.seek(0)
+    text = sanitize(intext).split()
 
     #count words in text
     for word in text:
@@ -38,7 +37,7 @@ def commonsort(file):
     countlist = quicksort(countlist)
     return countlist
 
-def alphasort(file):
+def alphasort(intext):
     def sort(words):
         buckets = {}
         #sort items into buckets
@@ -87,8 +86,7 @@ def alphasort(file):
                             bucket[bucket.index(item)], bucket[bucket.index(previous_item)] = bucket[bucket.index(previous_item)], bucket[bucket.index(item)]
         return buckets
 
-    text = sanitize(file.read()).split()
-    file.seek(0)
+    text = sanitize(intext).split()
     text = list(set(text))
     text = sort(text)
     alphabet = list(map(chr, range(97, 123)))
