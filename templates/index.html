@@ -21,12 +21,35 @@
     <div class="datatable">
       <div class="datarow">
         <h1 class="datatitle">Metadata</h1>
+        <ul>
+          <li>Characters-{{data["charcount"]}}</li>
+          <li>Characters (No Spaces)-{{data["charcount_nospace"]}}</li>
+          <li>Lines-{{data["linecount"]}}</li>
+          <li>Words-{{data["wordcount"]}}</li>
+          <li>Special Characters-</li>
+          <ul>
+            <li>Semicolons-{{data["specialcount"]["semicolon"]}}</li>
+            <li>Question Marks-{{data["specialcount"]["question"]}}</li>
+            <li>Exclamation Points-{{data["specialcount"]["exclamation"]}}</li>
+            <li>Apostrophes-{{data["specialcount"]["apostrophe"]}}</li>
+          </ul>
+        </ul>
       </div>
       <div class="datarow">
         <h1 class="datatitle">Common Sort</h1>
+        <ol>
+          {% for item in data["commonsort"] %}
+            <li>{{item["word"]}}- {{item["value"]}}</li>
+          {% endfor %}
+        </ol>
       </div>
       <div class="datarow">
         <h1 class="datatitle">Alphabetical Sort</h1>
+        <ol>
+          {% for item in data["alphasort"] %}
+            <li>{{item}}</li>
+          {% endfor %}
+        </ol>
       </div>
     </div>
   {% endif %}
