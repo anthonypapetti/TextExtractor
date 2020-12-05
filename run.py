@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from counts import charcount, specialcount, wordcount
+from counts import charcount, specialcount, wordcount, linecount
 import datetime
 app = Flask(__name__)
 app.config["DEBUG"] = True

@@ -22,6 +22,9 @@ def specialcount(text):
     
     return specialdict
 
+def linecount(text):
+    return len(text.split("\n"))
+
 def wordcount(text):
     words = len(sanitize(text).split())
     return words
