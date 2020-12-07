@@ -13,7 +13,6 @@ def index():
 		data = {
 			"charcount": charcount(text),
 			"charcount_nospace": charcount(text, spaces=False),
-			"linecount": linecount(text),
 			"specialcount": specialcount(text),
 			"wordcount": wordcount(text),
 			"commonsort": commonsort(text),

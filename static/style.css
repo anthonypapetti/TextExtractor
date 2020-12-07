@@ -8,8 +8,6 @@ textarea {
   width: 33vw;
   height: 40vh;
   resize: none;
-  white-space: nowrap;
-  overflow: auto;
 }
 
 input {
