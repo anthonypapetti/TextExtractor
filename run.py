@@ -14,6 +14,7 @@ def index():
 			"charcount": charcount(text),
 			"charcount_nospace": charcount(text, spaces=False),
 			"specialcount": specialcount(text),
+			"linecount": linecount(text),
 			"wordcount": wordcount(text),
 			"commonsort": commonsort(text),
 			"alphasort": alphasort(text),
@@ -23,4 +24,4 @@ def index():
 		return render_template("index.html",)
 
 if __name__ == "__main__":
-	app.run()
+	app.run(host='0.0.0.0')

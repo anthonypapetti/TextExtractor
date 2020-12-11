@@ -11,7 +11,7 @@
   <h2 class="subtitle">Extract data from any piece of writing</h2>
   <form method="POST" action="/">
     <div>
-      <textarea name="text" required="required"></textarea>
+      <textarea name="text" required="required" wrap="hard"></textarea>
     </div>
     <div>
       <input type="submit">
@@ -25,6 +25,7 @@
           <li>Characters-{{data["charcount"]}}</li>
           <li>Characters (No Spaces)-{{data["charcount_nospace"]}}</li>
           <li>Words-{{data["wordcount"]}}</li>
+		  <li>Lines-{{data["linecount"]}}</li>
           <li>Special Characters-</li>
           <ul>
             <li>Semicolons-{{data["specialcount"]["semicolon"]}}</li>
