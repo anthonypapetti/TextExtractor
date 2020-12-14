@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from counts import charcount, specialcount, wordcount, linecount
+from counts import charcount, specialcount, wordcount, linecount, averagelen
 from sorts import commonsort, alphasort
 import datetime
 app = Flask(__name__)
@@ -16,6 +16,7 @@ def index():
 			"specialcount": specialcount(text),
 			"linecount": linecount(text),
 			"wordcount": wordcount(text),
+			"averagelen": averagelen(text),
 			"commonsort": commonsort(text),
 			"alphasort": alphasort(text),
 		}
@@ -24,4 +25,4 @@ def index():
 		return render_template("index.html",)
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0')
+	app.run()

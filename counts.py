@@ -28,3 +28,11 @@ def linecount(text):
 def wordcount(text):
     words = len(sanitize(text).split())
     return words
+
+def averagelen(text):
+    words = sanitize(text).split()
+    letters = 0
+    for word in words:
+        letters += len(word)
+    
+    return letters / len(words)
