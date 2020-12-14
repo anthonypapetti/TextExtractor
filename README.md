@@ -24,10 +24,6 @@ Run the program
 python run.py <filename>
 ```
 
-## Built With
-
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Web Framework
-
 ## Authors
 
 * [**Anthony Papetti**](https://github.com/anthonypapetti)
