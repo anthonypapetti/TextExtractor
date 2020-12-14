@@ -37,3 +37,11 @@ def wordcount(file):
         words += len(sanitize(line).split())
     file.seek(0)
     return words
+
+def averagelen(file):
+    words = sanitize(file.read()).split()
+    file.seek(0)
+    letters = 0
+    for word in words:
+        letters += len(word)
+    return letters / len(words)
