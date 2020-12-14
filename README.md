@@ -4,7 +4,7 @@ This is a small web application to extract useful data from pieces of online tex
 
 ## Getting Started
 
-Install python, preferably 3.7.4 from https://www.python.org/downloads/release/python-374/
+Install python, preferably 3.9 from https://www.python.org/downloads/release/python-390/
 
 clone the repository to your local machine
 
